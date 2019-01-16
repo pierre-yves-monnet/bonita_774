@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>loadDocumentFromDisk-impl</implementationId>
+  <implementationVersion>1.0.0</implementationVersion>
+  <definitionId>loadDocumentFromDisk</definitionId>
+  <definitionVersion>1.0.0</definitionVersion>
+  <implementationClassname>org.bonitasoft.connector.LoadDocumentFromDiskImpl</implementationClassname>
+  <hasSources>true</hasSources>
+  <description>Load a document from a absolute path</description>
+  <jarDependencies>
+    <jarDependency>loadDocumentFromDisk-impl-1.0.0.jar</jarDependency>
+  </jarDependencies>
+</implementation:connectorImplementation>

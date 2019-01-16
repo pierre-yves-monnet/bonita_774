@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel modelVersion="1.0" productVersion="7.7.4">
+    <businessObjects>
+        <businessObject qualifiedName="com.company.model.ProdInfo">
+            <fields>
+                <field type="STRING" length="255" name="global_brand_name" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.SafetyTopic">
+            <fields>
+                <field type="STRING" length="200" name="name" nullable="false" collection="false"/>
+                <field type="STRING" length="512" name="description" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.ProdInfo" fetchType="EAGER" name="prod_info" nullable="true" collection="false"/>
+                <field type="STRING" length="15" name="review_priority" nullable="true" collection="false"/>
+                <field type="STRING" length="50" name="category" nullable="true" collection="false"/>
+                <field type="STRING" length="10" name="key_risk" nullable="true" collection="false"/>
+                <field type="STRING" length="25" name="origin" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="UNIQUE_CONSTRAINT_3">
+                    <fieldNames>
+                        <fieldName>name</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.SmtMeeting">
+            <fields>
+                <field type="OFFSETDATETIME" length="255" name="date_of_meeting" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.SmtMember" fetchType="EAGER" name="meeting_members" nullable="true" collection="true"/>
+                <field type="TEXT" length="255" name="handout" nullable="true" collection="false"/>
+                <field type="TEXT" length="255" name="agenda" nullable="true" collection="false"/>
+                <field type="TEXT" length="255" name="minutes" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="is_handout_generated" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.SmtMeetingThTo" fetchType="EAGER" name="meeting_th_to" nullable="true" collection="true"/>
+                <field type="STRING" length="100" name="chairperson" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Therapy">
+            <fields>
+                <relationField type="AGGREGATION" reference="com.company.model.SmtMember" fetchType="EAGER" name="members" nullable="true" collection="true"/>
+                <field type="STRING" length="100" name="name" nullable="false" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.SafetyTopic" fetchType="EAGER" name="topics" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="UNIQUE_CONSTRAINT_1">
+                    <fieldNames>
+                        <fieldName>name</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.SmtMember">
+            <description>Member of the meeting.&#xD;
+Nota : we keep in this list only the present: if the user does not select the member,it's not saved</description>
+            <fields>
+                <field type="STRING" length="100" name="name" nullable="false" collection="false"/>
+                <field type="STRING" length="200" name="email" nullable="true" collection="false"/>
+                <field type="STRING" length="20" name="role_type" nullable="true" collection="false"/>
+                <field type="STRING" length="100" name="role_member" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="UNIQUE_CONSTRAINT_2">
+                    <fieldNames>
+                        <fieldName>name</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.SmtMeetingThTo">
+            <fields>
+                <relationField type="AGGREGATION" reference="com.company.model.SmtMeetingTopic" fetchType="EAGER" name="topics_meeting" nullable="true" collection="true"/>
+                <relationField type="AGGREGATION" reference="com.company.model.Therapy" fetchType="EAGER" name="therapy" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.SmtMeetingTopic">
+            <description>Used to show that topic is selected for inclusion in this SMT meeting</description>
+            <fields>
+                <relationField type="AGGREGATION" reference="com.company.model.SafetyTopic" fetchType="EAGER" name="safety_topic" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="selected" nullable="true" collection="false"/>
+                <field type="TEXT" length="255" name="conclusion" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>

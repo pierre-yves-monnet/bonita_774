@@ -1,0 +1,116 @@
+{
+  "designerVersion" : "1.5.51",
+  "id" : "customFileUpload",
+  "name" : "fileUpload",
+  "lastUpdate" : 1538776841498,
+  "template" : "<div ng-class=\"{\n    'form-horizontal': properties.labelPosition === 'left' && !properties.labelHidden,\n    'row': properties.labelPosition === 'top' && !properties.labelHidden || properties.labelHidden\n    }\">\n    <div class=\"form-group\">\n        <label\n            ng-if=\"!properties.labelHidden\"\n            ng-class=\"{ 'control-label--required': properties.required }\"\n            class=\"control-label col-xs-{{ !properties.labelHidden && properties.labelPosition === 'left' ? properties.labelWidth : 12 }}\">\n            {{ properties.label | uiTranslate }}\n        </label>\n        <div class=\"col-xs-{{ 12 - (!properties.labelHidden && properties.labelPosition === 'left' ? properties.labelWidth : 0) }}\">\n           <form action=\"{{ctrl.url}}\"\n                 ng-upload=\"ctrl.uploadComplete(content)\"\n                 ng-upload-loading=\"ctrl.startUploading()\"\n                 error-catcher=\"ctrl.uploadError(error)\"\n                 upload-options-enable-csrf\n                 upload-options-csrf-param=\"CSRFToken\">\n                <div class=\"input-group\">\n                  \n                    <input type=\"text\" ng-readonly=\"!ctrl.newFile\" ng-focus=\"ctrl.preventFocus($event)\" placeholder=\"{{properties.placeholder | uiTranslate}}\" value=\"{{ctrl.filename}}\" class=\"form-control\" />\n                  \n                    <input class=\"custom-file-upload-input\"\n                             ng-class=\"{'file-upload-input--disabled':$isUploading}\"\n                             name=\"{{ctrl.name}}\" type=\"file\"\n                             ng-required=\"properties.required\"\n                             ng-model=\"ctrl.filemodel\"\n                             \n                             />\n                  <button type=\"button\" ng-if=\"ctrl.filemodel\" ng-click=\"ctrl.clear()\" class=\"custom-file-upload-clear\">\n                        <i class=\"glyphicon glyphicon-remove-circle\"></i>\n                        <span class=\"hide\" translate>Close</span>\n                    </button>\n                    <div class=\"input-group-btn\" ng-class=\"{'btn-default disabled':$isUploading, 'btn-primary':!$isUploading}\" >\n                      <div class=\"btn btn-primary\" ng-show=\"ctrl.newFile\">\n                          <i class=\"glyphicon\" ng-class=\"{'glyphicon-cloud-upload':$isUploading, 'glyphicon-paperclip':!$isUploading}\" ></i>\n                      </div>\n                      <button uib-tooltip=\"Cancel edit\" tooltip-placement=\"top\" tooltip-popup-delay=\"300\" class=\"btn btn-primary\" ng-click=\"ctrl.cancelEdit()\" ng-if=\"ctrl.editMode\">\n                        <i class=\"glyphicon glyphicon-ban-circle\" ></i>\n                      </button>\n                      <a uib-tooltip=\"Download file\" tooltip-placement=\"top\" tooltip-popup-delay=\"300\" class=\"btn btn-primary\" ng-if=\"!ctrl.newFile\" ng-href=\"{{ctrl.downloadUrl}}\">\n                        <i class=\"glyphicon glyphicon-download\"></i>\n                      </a>\n                      <button uib-tooltip=\"Edit current file\" tooltip-placement=\"top\" tooltip-popup-delay=\"300\" class=\"btn btn-primary\" ng-click=\"ctrl.edit()\" ng-if=\"!ctrl.newFile && !properties.readOnly\">\n                        <i class=\"glyphicon glyphicon-tag\"></i>\n                      </button>\n                      <button uib-tooltip=\"Delete file\" tooltip-placement=\"top\" tooltip-popup-delay=\"300\" class=\"btn btn-primary\" ng-click=\"ctrl.delete()\" ng-if=\"!ctrl.newFile && !properties.readOnly\">\n                        <i class=\"glyphicon glyphicon-trash\" ></i>\n                      </button>\n                  </div>\n                </div>\n            </form>\n          \n            \n            <div ng-messages=\"$form[ctrl.name].$dirty && $form[ctrl.name].$error \" ng-messages-include=\"forms-generic-errors.html\" role=\"alert\"></div>\n        </div>\n    </div>\n</div>",
+  "controller" : "function CustomFileUploadCtrl($scope, $sce, $element, $timeout, $log, widgetNameFactory) {\n  var ctrl = this;\n  this.name = widgetNameFactory.getName(\"fileUpload\");\n//  this.name = \"fileUpload\";\n  this.filename = '';\n  this.filemodel = '';\n  this.editMode = false;\n  this.existingFile = false;\n\n  this.edit = edit;\n  this.clear = clear;\n  this.delete = deleteCurrentFile;\n  this.cancelEdit = cancelEdit;\n  this.startUploading = startUploading;\n  this.uploadError = uploadError;\n  this.uploadComplete = uploadComplete;\n  this.downloadUrl = '';\n  this.newFile=true;\n  \n\n\n  var input = $element.find('input');\n  var form = $element.find('form');\n\n  this.preventFocus = function($event) {\n    $event.target.blur();\n  };\n\n  input.on('change', forceSubmit);\n  $scope.$on('$destroy', function() {\n    input.off('change', forceSubmit);\n  });\n\n  $scope.$watch('properties.url', function(newUrl, oldUrl){\n    ctrl.url = $sce.trustAsResourceUrl(newUrl);\n    if (newUrl === undefined) {\n      $log.warn('you need to define a url for pbUpload');\n    }\n  });\n\n  $scope.$watch('properties.currentFile', function(newCurrentFile, oldCurrentFile){\n    if (angular.isObject(newCurrentFile) && newCurrentFile.fileName) {\n      ctrl.downloadUrl = \"/bonita/portal/\" + newCurrentFile.url;\n      ctrl.filename = newCurrentFile.fileName;\n      ctrl.newFile = false;\n    }\n  });\n\n  $scope.$watch('properties.deleteFile', function(newDeleteFile){\n    if (!newDeleteFile) {\n      $scope.properties.deleteFile = false;\n    }\n  });\n\n  $scope.$watch('properties.newFile', function(newFile){\n    if (!newFile) {\n      $scope.properties.newFile = null;\n    }\n  });\n\n  //the filename displayed is not bound to the value as a bidirectionnal\n  //bond, thus, in case the value is updated, it is not reflected\n  //to the filename (example with the BS-14498)\n  //we watch the value to update the filename and the upload widget state\n  $scope.$watch(function(){return $scope.properties.newFile;}, function(newValue){\n    if (newValue && newValue.filename) {\n      ctrl.filemodel = true;\n      ctrl.filename = newValue.filename;\n    } else if (!angular.isDefined(newValue)) {\n      delete ctrl.filemodel;\n      delete ctrl.filename;\n    }\n  });\n\n\n  if (!$scope.properties.isBound('newFile')) {\n    $log.error('the pbUpload property named \"newFile\" need to be bound to a variable');\n  } \n\n  if ($scope.properties.isBound('existingFile') && angular.isObject($scope.properties.existingFile)) {\n      this.editMode = false;\n      this.existingFile = true;\n  } \n\n  function clear() {\n    ctrl.filename = '';\n    ctrl.filemodel = '';\n    ctrl.newFile=true;\n    $scope.properties.newFile = null;\n  }\n\n  function deleteCurrentFile() {\n    ctrl.newFile=true;\n    ctrl.filename = '';\n    ctrl.filemodel = '';\n    $scope.properties.currentFile = null;\n    $scope.properties.deleteFile = true;\n  }\n\n  function edit() {\n    ctrl.newFile=true;\n    ctrl.editMode=true;\n    input.required = true;\n    ctrl.filemodel = '';\n  }\n\n  function cancelEdit() {\n    ctrl.newFile=false;\n    ctrl.editMode=false;\n    ctrl.filemodel = '';\n    $scope.properties.newFile = null;\n    ctrl.filename = $scope.properties.currentFile.fileName;\n  }\n\n  function uploadError(error) {\n    $log.warn('upload fails too', error);\n    ctrl.filemodel = '';\n    ctrl.filename = \"Upload failed\";\n  }\n\n  function startUploading() {\n    ctrl.filemodel = '';\n    ctrl.filename  = 'Uploading...';\n  }\n\n  function uploadComplete(response) {\n    //when the upload widget return a String, it means an error has occurred (with a html document as a response)\n    //if it's not a string, we test if it contains some error message\n    if(angular.isString(response) || (response && response.type && response.message)){\n      $log.warn('upload fails');\n      ctrl.filemodel = '';\n      ctrl.filename = 'Upload failed';\n      $scope.properties.errorContent = angular.isString(response) ? response : response.message;\n      return;\n    }\n    $scope.properties.deleteFile = false;\n\n    $scope.properties.newFile = response;\n    \n  }\n  \n  \n\n  function forceSubmit(event) {\n    if(!event.target.value) {\n      return;\n    }\n\n    form.triggerHandler('submit');\n    form[0].submit();\n    event.target.value = null;\n  }\n}\n",
+  "description" : "File chooser for uploading a document to a form",
+  "custom" : true,
+  "properties" : [ {
+    "label" : "Required",
+    "name" : "required",
+    "help" : "In the context of a form container, use $form.$invalid as a Boolean to check form validity in a widget property",
+    "type" : "boolean",
+    "defaultValue" : false,
+    "bond" : "expression"
+  }, {
+    "label" : "Read only",
+    "name" : "readOnly",
+    "help" : "The current file can not be modified",
+    "type" : "boolean",
+    "defaultValue" : false,
+    "bond" : "expression"
+  }, {
+    "label" : "Label hidden",
+    "name" : "labelHidden",
+    "type" : "boolean",
+    "defaultValue" : false,
+    "bond" : "expression"
+  }, {
+    "label" : "Label",
+    "name" : "label",
+    "showFor" : "properties.labelHidden.value === false",
+    "type" : "text",
+    "defaultValue" : "Default label",
+    "bond" : "interpolation"
+  }, {
+    "label" : "Label position",
+    "name" : "labelPosition",
+    "showFor" : "properties.labelHidden.value === false",
+    "type" : "choice",
+    "defaultValue" : "top",
+    "choiceValues" : [ "left", "top" ],
+    "bond" : "constant"
+  }, {
+    "label" : "Label width",
+    "name" : "labelWidth",
+    "showFor" : "properties.labelHidden.value === false",
+    "type" : "integer",
+    "defaultValue" : 4,
+    "bond" : "constant",
+    "constraints" : {
+      "min" : "1",
+      "max" : "12"
+    }
+  }, {
+    "label" : "Placeholder",
+    "name" : "placeholder",
+    "help" : "Short hint that describes the expected value",
+    "type" : "text",
+    "bond" : "interpolation"
+  }, {
+    "label" : "URL",
+    "name" : "url",
+    "help" : "Defines endpoint URL where the file will be uploaded",
+    "type" : "text",
+    "defaultValue" : "../API/formFileUpload",
+    "bond" : "expression"
+  }, {
+    "label" : "New File",
+    "name" : "newFile",
+    "caption" : "Any variable: <i>myData</i> or <i>myData.attribute</i>",
+    "help" : "Holds the response from the upload endpoint. That value can be used to fulfill a contract",
+    "type" : "text",
+    "bond" : "variable"
+  }, {
+    "label" : "Existing file",
+    "name" : "currentFile",
+    "caption" : "Any variable: <i>myData</i> or <i>myData.attribute</i>",
+    "help" : "Display a download link for the current document. Will be empty if a new file is uploaded or the current file is removed.",
+    "type" : "text",
+    "bond" : "variable"
+  }, {
+    "label" : "File deleted",
+    "name" : "deleteFile",
+    "caption" : "Any boolean variable: <i>myData</i> or <i>myData.attribute</i>",
+    "help" : "Holds the boolean value from the widget indicates whether or not the file has been deleted by the user.",
+    "type" : "boolean",
+    "bond" : "variable"
+  }, {
+    "label" : "Error on upload holder",
+    "name" : "errorContent",
+    "help" : "Holds the response content from the upload error endpoint. That value can be used to guidance purpose",
+    "type" : "text",
+    "bond" : "variable"
+  } ],
+  "assets" : [ {
+    "name" : "ng-upload-0.5.19-patched.min.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  }, {
+    "name" : "ui-bootstrap-tpls-2.5.0.min.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  }, {
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 1,
+    "external" : false
+  } ],
+  "requiredModules" : [ "ui.bootstrap", "ngUpload" ],
+  "type" : "widget",
+  "hasHelp" : false
+}

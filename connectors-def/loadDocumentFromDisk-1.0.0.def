@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+  <id>loadDocumentFromDisk</id>
+  <version>1.0.0</version>
+  <input mandatory="true" name="pathFile" type="java.lang.String"/>
+  <input name="documentName" type="java.lang.String"/>
+  <input name="contentType" type="java.lang.String"/>
+  <output name="document" type="org.bonitasoft.engine.bpm.document.DocumentValue"/>
+  <page id="init">
+    <widget xsi:type="definition:Text" id="pathFile" inputName="pathFile"/>
+    <widget xsi:type="definition:Text" id="documentname" inputName="documentName"/>
+    <widget xsi:type="definition:Text" id="contenttype" inputName="contentType"/>
+  </page>
+</definition:ConnectorDefinition>
