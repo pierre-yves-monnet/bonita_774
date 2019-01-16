@@ -1,8 +1,9 @@
 {
-  "designerVersion" : "1.7.69",
+  "designerVersion" : "1.8.29",
+  "previousDesignerVersion" : "1.7.69",
   "id" : "SmtMeeting",
   "name" : "SmtMeeting",
-  "lastUpdate" : 1547678619008,
+  "lastUpdate" : 1547680151027,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -10,6 +11,7 @@
     },
     "propertyValues" : { },
     "reference" : "f157f18f-e041-40d7-9f1d-aafdb57d9b29",
+    "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
       "type" : "component",
@@ -69,6 +71,7 @@
         }
       },
       "reference" : "63111e2d-30da-437a-ab00-bfcebf2a99d3",
+      "hasValidationError" : false,
       "id" : "pbTitle"
     } ], [ {
       "type" : "component",
@@ -128,6 +131,7 @@
         }
       },
       "reference" : "c82a00a3-7ecc-4716-ae91-cc362ec9ae95",
+      "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
   } ], [ {
@@ -146,6 +150,7 @@
       }
     },
     "reference" : "6c4b0102-cdbf-4a42-ad83-5b541c07fe1d",
+    "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
       "type" : "container",
@@ -154,6 +159,7 @@
       },
       "propertyValues" : { },
       "reference" : "18baa501-1180-4f37-9d27-13f77cd0dc7a",
+      "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
         "type" : "component",
@@ -186,6 +192,7 @@
           }
         },
         "reference" : "68dd5550-7923-4c4a-9154-29e972a1b274",
+        "hasValidationError" : false,
         "id" : "pbText"
       } ], [ {
         "type" : "container",
@@ -240,6 +247,7 @@
           }
         },
         "reference" : "24ad596d-4f06-42b7-b726-25cf14cfdbaf",
+        "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ {
           "type" : "component",
@@ -304,6 +312,7 @@
             }
           },
           "reference" : "876cc30f-9e67-40a6-89e4-3174eb08f3c1",
+          "hasValidationError" : false,
           "id" : "pbDatePicker"
         }, {
           "type" : "component",
@@ -383,6 +392,7 @@
             }
           },
           "reference" : "7d25383e-a04a-464a-a717-08fbfd69794f",
+          "hasValidationError" : false,
           "id" : "customInputPlus"
         } ], [ {
           "type" : "container",
@@ -407,6 +417,7 @@
             }
           },
           "reference" : "0ee3a9b3-ce84-48ca-b380-961ede012578",
+          "hasValidationError" : false,
           "id" : "pbContainer",
           "rows" : [ [ {
             "type" : "component",
@@ -502,6 +513,7 @@
               }
             },
             "reference" : "92486725-8118-46c7-984c-17d6ffb1f95b",
+            "hasValidationError" : false,
             "id" : "pbButton"
           }, {
             "type" : "container",
@@ -526,6 +538,7 @@
               }
             },
             "reference" : "caf23b1b-eaac-481a-95a2-3b84124db122",
+            "hasValidationError" : false,
             "id" : "pbContainer",
             "rows" : [ [ {
               "type" : "component",
@@ -597,6 +610,7 @@
                 }
               },
               "reference" : "3064c15c-c14b-43b1-829d-2069664cecf1",
+              "hasValidationError" : false,
               "id" : "pbButton"
             } ], [ {
               "type" : "component",
@@ -629,6 +643,7 @@
                 }
               },
               "reference" : "541b314b-2211-4550-828c-4f2a46f375cd",
+              "hasValidationError" : false,
               "id" : "pbText"
             } ] ]
           } ], [ {
@@ -702,6 +717,7 @@
               }
             },
             "reference" : "c6a50da3-5c42-4be2-9321-8b579202dd91",
+            "hasValidationError" : false,
             "id" : "pbButton"
           } ], [ {
             "type" : "component",
@@ -734,6 +750,7 @@
               }
             },
             "reference" : "f07441be-5baa-402c-aa84-a2a2da314dde",
+            "hasValidationError" : false,
             "id" : "pbText"
           } ], [ {
             "type" : "component",
@@ -766,6 +783,7 @@
               }
             },
             "reference" : "ae15c796-d7e5-480a-92dc-4a8fd20015d8",
+            "hasValidationError" : false,
             "id" : "pbText"
           } ], [ {
             "type" : "component",
@@ -797,6 +815,7 @@
               }
             },
             "reference" : "08b0de70-0f9e-4e44-b84c-dca50a8fdc87",
+            "hasValidationError" : false,
             "id" : "customDisplayfailedresponse"
           } ] ]
         } ], [ {
@@ -830,6 +849,7 @@
             }
           },
           "reference" : "2f282b3e-0faa-4bf2-8e3d-f630df81bfb7",
+          "hasValidationError" : false,
           "id" : "pbText"
         } ], [ {
           "type" : "component",
@@ -874,6 +894,7 @@
             }
           },
           "reference" : "ef7fc237-0b84-4b33-bf48-41759bf2e8d3",
+          "hasValidationError" : false,
           "id" : "customToggleButtons"
         } ], [ {
           "type" : "tabsContainer",
@@ -894,6 +915,7 @@
             }
           },
           "reference" : "f3f5da8a-2c4c-455d-967a-999d6fe7c232",
+          "hasValidationError" : false,
           "id" : "pbTabsContainer",
           "tabs" : [ {
             "container" : {
@@ -903,6 +925,7 @@
               },
               "propertyValues" : { },
               "reference" : "679f1750-e547-43de-959b-6c04e38ba845",
+              "hasValidationError" : false,
               "id" : "pbContainer",
               "rows" : [ [ {
                 "type" : "container",
@@ -927,6 +950,7 @@
                   }
                 },
                 "reference" : "51b47d1c-f074-4445-ae47-3e2aff35f901",
+                "hasValidationError" : false,
                 "id" : "pbContainer",
                 "rows" : [ [ {
                   "type" : "container",
@@ -951,6 +975,7 @@
                     }
                   },
                   "reference" : "599d506b-f126-413d-8a27-546e360cfae0",
+                  "hasValidationError" : false,
                   "id" : "pbContainer",
                   "rows" : [ [ {
                     "type" : "container",
@@ -975,6 +1000,7 @@
                       }
                     },
                     "reference" : "5366848d-1e58-4777-86f2-3361a93402c1",
+                    "hasValidationError" : false,
                     "id" : "pbContainer",
                     "rows" : [ [ {
                       "type" : "component",
@@ -1034,6 +1060,7 @@
                         }
                       },
                       "reference" : "089c1980-b432-4998-8081-befe6e27222d",
+                      "hasValidationError" : false,
                       "id" : "pbAutocomplete"
                     } ] ]
                   }, {
@@ -1059,6 +1086,7 @@
                       }
                     },
                     "reference" : "45014b87-f999-45ba-9bb8-78b954c0e5e8",
+                    "hasValidationError" : false,
                     "id" : "pbContainer",
                     "rows" : [ [ {
                       "type" : "component",
@@ -1131,6 +1159,7 @@
                         }
                       },
                       "reference" : "4334c990-1d86-42d5-89de-a12a469c1e98",
+                      "hasValidationError" : false,
                       "id" : "pbButton"
                     }, {
                       "type" : "component",
@@ -1163,6 +1192,7 @@
                         }
                       },
                       "reference" : "5b51c2be-d567-4de7-b0af-300df4d36b91",
+                      "hasValidationError" : false,
                       "id" : "pbText"
                     } ] ]
                   } ], [ {
@@ -1188,6 +1218,7 @@
                       }
                     },
                     "reference" : "2bc51fff-883b-4e25-b16b-44d5a2fbfd81",
+                    "hasValidationError" : false,
                     "id" : "pbContainer",
                     "rows" : [ [ {
                       "type" : "component",
@@ -1220,6 +1251,7 @@
                         }
                       },
                       "reference" : "61211b5e-ffc9-49da-848a-b61f11cf8ee9",
+                      "hasValidationError" : false,
                       "id" : "pbText"
                     }, {
                       "type" : "component",
@@ -1296,6 +1328,7 @@
                         }
                       },
                       "reference" : "4ebd1c11-2893-43a6-861b-5149e6d54203",
+                      "hasValidationError" : false,
                       "id" : "customButtonPlus"
                     } ], [ {
                       "type" : "component",
@@ -1352,6 +1385,7 @@
                         }
                       },
                       "reference" : "a84ee1db-d737-40d8-8407-eeb0bf6a95a6",
+                      "hasValidationError" : false,
                       "id" : "customBearTable"
                     } ] ]
                   } ] ]
@@ -1367,6 +1401,7 @@
               },
               "propertyValues" : { },
               "reference" : "cf9a9bf7-1fc5-45ee-a066-b240dfc04b22",
+              "hasValidationError" : false,
               "id" : "pbContainer",
               "rows" : [ [ {
                 "type" : "container",
@@ -1391,6 +1426,7 @@
                   }
                 },
                 "reference" : "61d30ee6-5649-4c4e-ab26-785fd6d4357f",
+                "hasValidationError" : false,
                 "id" : "pbContainer",
                 "rows" : [ [ {
                   "type" : "component",
@@ -1485,6 +1521,7 @@
                     }
                   },
                   "reference" : "3331c898-45ae-4f6c-83df-e88db4646df3",
+                  "hasValidationError" : false,
                   "id" : "pbButton"
                 } ], [ {
                   "type" : "component",
@@ -1541,6 +1578,7 @@
                     }
                   },
                   "reference" : "fc2cce4d-bb29-4442-8235-55c5650a122e",
+                  "hasValidationError" : false,
                   "id" : "customBearTable"
                 } ], [ {
                   "type" : "container",
@@ -1595,6 +1633,7 @@
                     }
                   },
                   "reference" : "3012eb35-7037-4c84-8eb7-f8048f0a2e6e",
+                  "hasValidationError" : false,
                   "id" : "pbContainer",
                   "rows" : [ [ {
                     "type" : "component",
@@ -1631,6 +1670,7 @@
                       }
                     },
                     "reference" : "682bcd87-21ea-4af7-a66d-3c3f09fa508a",
+                    "hasValidationError" : false,
                     "id" : "pbCheckbox"
                   }, {
                     "type" : "component",
@@ -1693,6 +1733,7 @@
                       }
                     },
                     "reference" : "8a61e27d-d393-4382-8628-1fdc96543a12",
+                    "hasValidationError" : false,
                     "id" : "pbSelect"
                   }, {
                     "type" : "component",
@@ -1790,6 +1831,7 @@
                       }
                     },
                     "reference" : "90733399-9502-4674-9c04-4cbd61784f46",
+                    "hasValidationError" : false,
                     "id" : "pbInput"
                   }, {
                     "type" : "component",
@@ -1863,6 +1905,7 @@
                       }
                     },
                     "reference" : "e3ff2e39-9513-40ad-95d2-ab222ce67ca2",
+                    "hasValidationError" : false,
                     "id" : "pbInput"
                   }, {
                     "type" : "component",
@@ -1960,6 +2003,7 @@
                       }
                     },
                     "reference" : "443f9bc6-224f-4af9-b977-867cc8d81c8b",
+                    "hasValidationError" : false,
                     "id" : "pbInput"
                   }, {
                     "type" : "component",
@@ -1992,6 +2036,7 @@
                       }
                     },
                     "reference" : "c7d3b359-0a72-4d86-8ba9-91daf27c0ccf",
+                    "hasValidationError" : false,
                     "id" : "pbText"
                   } ] ]
                 } ] ]
@@ -2006,6 +2051,7 @@
               },
               "propertyValues" : { },
               "reference" : "0aecfefc-92cb-40f8-92f3-9b899c56b58c",
+              "hasValidationError" : false,
               "id" : "pbContainer",
               "rows" : [ [ {
                 "type" : "container",
@@ -2030,6 +2076,7 @@
                   }
                 },
                 "reference" : "5ae94008-aff4-4414-88e3-c8f7f993bbab",
+                "hasValidationError" : false,
                 "id" : "pbContainer",
                 "rows" : [ [ {
                   "type" : "component",
@@ -2101,6 +2148,7 @@
                     }
                   },
                   "reference" : "58c8caf4-63d8-47f7-9ccd-b27b62d2532e",
+                  "hasValidationError" : false,
                   "id" : "pbButton"
                 }, {
                   "type" : "component",
@@ -2137,6 +2185,7 @@
                     }
                   },
                   "reference" : "bd025f64-ef6f-4802-b95a-152a4f539c8f",
+                  "hasValidationError" : false,
                   "id" : "pbFileViewer"
                 } ] ]
               } ] ]
@@ -2150,6 +2199,7 @@
               },
               "propertyValues" : { },
               "reference" : "e11b9494-5f5e-4e58-9b0b-6c040b69d8af",
+              "hasValidationError" : false,
               "id" : "pbContainer",
               "rows" : [ [ {
                 "type" : "container",
@@ -2174,6 +2224,7 @@
                   }
                 },
                 "reference" : "36a2e436-c86c-4816-83d1-798c204c2350",
+                "hasValidationError" : false,
                 "id" : "pbContainer",
                 "rows" : [ [ {
                   "type" : "component",
@@ -2244,6 +2295,7 @@
                     }
                   },
                   "reference" : "59318608-3cf3-4d87-86db-4ee5fea37660",
+                  "hasValidationError" : false,
                   "id" : "pbButton"
                 }, {
                   "type" : "component",
@@ -2280,6 +2332,7 @@
                     }
                   },
                   "reference" : "a426d262-879a-41ed-a762-fcfa766295bf",
+                  "hasValidationError" : false,
                   "id" : "pbFileViewer"
                 } ] ]
               } ] ]
@@ -2293,6 +2346,7 @@
               },
               "propertyValues" : { },
               "reference" : "da56a741-e81f-4433-96d7-868fafc2dc29",
+              "hasValidationError" : false,
               "id" : "pbContainer",
               "rows" : [ [ {
                 "type" : "container",
@@ -2317,6 +2371,7 @@
                   }
                 },
                 "reference" : "23b89838-d288-4f6c-93c7-408367c6337a",
+                "hasValidationError" : false,
                 "id" : "pbContainer",
                 "rows" : [ [ {
                   "type" : "container",
@@ -2341,6 +2396,7 @@
                     }
                   },
                   "reference" : "b12d5c17-d4d9-4954-8b9b-c513d435d275",
+                  "hasValidationError" : false,
                   "id" : "pbContainer",
                   "rows" : [ [ {
                     "type" : "component",
@@ -2373,6 +2429,7 @@
                       }
                     },
                     "reference" : "53c3901c-6b59-4a5e-a2a3-51fed691aeca",
+                    "hasValidationError" : false,
                     "id" : "pbTitle"
                   } ], [ {
                     "type" : "container",
@@ -2397,6 +2454,7 @@
                       }
                     },
                     "reference" : "e0320b99-256e-4599-9862-65d69e00fbcc",
+                    "hasValidationError" : false,
                     "id" : "pbContainer",
                     "rows" : [ [ {
                       "type" : "container",
@@ -2421,6 +2479,7 @@
                         }
                       },
                       "reference" : "e2f60f55-601f-4bb6-bb5e-fd8081bd30b1",
+                      "hasValidationError" : false,
                       "id" : "pbContainer",
                       "rows" : [ [ {
                         "type" : "component",
@@ -2488,6 +2547,7 @@
                           }
                         },
                         "reference" : "ad8fe74d-c297-4b09-8c21-2955d836bd0c",
+                        "hasValidationError" : false,
                         "id" : "customFileUpload"
                       } ] ]
                     } ] ]
@@ -2515,6 +2575,7 @@
                     }
                   },
                   "reference" : "65bc693f-1e86-497d-a200-cb1a5a18d786",
+                  "hasValidationError" : false,
                   "id" : "pbContainer",
                   "rows" : [ [ {
                     "type" : "component",
@@ -2547,6 +2608,7 @@
                       }
                     },
                     "reference" : "36dfc2e5-8c44-426c-bbd6-46c348a99d3f",
+                    "hasValidationError" : false,
                     "id" : "pbTitle"
                   } ], [ {
                     "type" : "container",
@@ -2571,6 +2633,7 @@
                       }
                     },
                     "reference" : "da2b45ee-3f17-4db6-a7e5-1118d5cb7bc2",
+                    "hasValidationError" : false,
                     "id" : "pbContainer",
                     "rows" : [ [ {
                       "type" : "container",
@@ -2595,6 +2658,7 @@
                         }
                       },
                       "reference" : "21ba40a0-64b1-492a-9dea-82d403c8e7da",
+                      "hasValidationError" : false,
                       "id" : "pbContainer",
                       "rows" : [ [ {
                         "type" : "component",
@@ -2662,6 +2726,7 @@
                           }
                         },
                         "reference" : "6aa554b6-d4d2-46f4-95ed-7071fa598f16",
+                        "hasValidationError" : false,
                         "id" : "customFileUpload"
                       } ], [ {
                         "type" : "component",
@@ -2694,6 +2759,7 @@
                           }
                         },
                         "reference" : "46facaec-c738-43d3-ba8a-cabf93a8dd5c",
+                        "hasValidationError" : false,
                         "id" : "pbText"
                       } ] ]
                     } ] ]
@@ -2767,6 +2833,7 @@
                       }
                     },
                     "reference" : "6088dc06-d86c-4591-8c26-898f72266518",
+                    "hasValidationError" : false,
                     "id" : "pbButton"
                   } ] ]
                 } ] ]
@@ -2781,6 +2848,7 @@
               },
               "propertyValues" : { },
               "reference" : "ea682d7d-22ff-4863-ba5c-3b5762de4561",
+              "hasValidationError" : false,
               "id" : "pbContainer",
               "rows" : [ [ {
                 "type" : "container",
@@ -2805,6 +2873,7 @@
                   }
                 },
                 "reference" : "9fb3be31-bf6f-4c84-a9d8-bc656d398cc5",
+                "hasValidationError" : false,
                 "id" : "pbContainer",
                 "rows" : [ [ {
                   "type" : "container",
@@ -2829,6 +2898,7 @@
                     }
                   },
                   "reference" : "cfc00eb3-b380-4f59-99a0-9cfb735ebb7d",
+                  "hasValidationError" : false,
                   "id" : "pbContainer",
                   "rows" : [ [ {
                     "type" : "component",
@@ -2896,6 +2966,7 @@
                       }
                     },
                     "reference" : "cc075b49-8ea5-4d59-9303-210c913af7a8",
+                    "hasValidationError" : false,
                     "id" : "customFileUpload"
                   } ], [ {
                     "type" : "component",
@@ -2969,6 +3040,7 @@
                       }
                     },
                     "reference" : "3beb058b-d919-4ae2-bd2a-95a8cb2510b2",
+                    "hasValidationError" : false,
                     "id" : "pbInput"
                   } ], [ {
                     "type" : "component",
@@ -3001,6 +3073,7 @@
                       }
                     },
                     "reference" : "17b78d0e-1db4-4205-a74d-74d0c7d67a8d",
+                    "hasValidationError" : false,
                     "id" : "pbText"
                   } ] ]
                 } ], [ {
@@ -3074,6 +3147,7 @@
                     }
                   },
                   "reference" : "bca2592d-6c39-4dd7-b715-b3e5856e2853",
+                  "hasValidationError" : false,
                   "id" : "pbButton"
                 } ] ]
               } ] ]
@@ -3152,6 +3226,7 @@
           }
         },
         "reference" : "afb8316c-689a-4335-aa5e-0e02a3e0e883",
+        "hasValidationError" : false,
         "id" : "pbButton"
       } ], [ {
         "type" : "component",
@@ -3184,20 +3259,21 @@
           }
         },
         "reference" : "0fc753d6-05dd-4531-b246-b2fb33c7e35e",
+        "hasValidationError" : false,
         "id" : "pbText"
       } ] ]
     }
   } ] ],
   "assets" : [ {
-    "id" : "40757dc6-6a52-408f-bc98-602bdb6843a6",
-    "name" : "localization.json",
-    "type" : "json",
-    "order" : 0,
-    "external" : false
-  }, {
     "id" : "a96a3e20-fa2d-4c98-93f3-09769ffd0839",
     "name" : "style.css",
     "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "40757dc6-6a52-408f-bc98-602bdb6843a6",
+    "name" : "localization.json",
+    "type" : "json",
     "order" : 0,
     "external" : false
   } ],
@@ -3279,6 +3355,9 @@
       "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "929acb98-6c2c-4b25-95ae-9dc67693a1a3",
-  "type" : "form"
+  "type" : "form",
+  "description" : "Page generated with Bonita UI designer",
+  "displayName" : "SmtMeeting"
 }
